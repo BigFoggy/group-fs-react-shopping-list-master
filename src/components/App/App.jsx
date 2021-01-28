@@ -1,15 +1,19 @@
-import React, { useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
+import Form from '../Form/Form';
 import './App.css';
 
+
+const [newItem, setNewItem] = useState('');
+const [newQuantity, setNewQuantity] = useState(0);
+const [newUnit, setNewUnit] = useState('');
+const [shoppingList, setShoppingList] = useState([])
 
 function App() {
     useEffect(() => {
         getList();
       }, []); 
-    
-      const [shoppingList, setShoppingList] = useState([])
 
       const getList = () => { 
         axios({
@@ -27,6 +31,15 @@ function App() {
     return (
         <div className="App">
             <Header />
+            <Form 
+            newItem={newItem}
+            setNewItem={setNewItem}
+            newQuantity={newQuantity}
+            setNewQuantity={setNewQuantity}
+            newUnit={newUnit}
+            setNewUnit={setNewUnit}
+            handleSubmit={handleSubmit}
+            />
             <main>
                 <p>Under Construction...</p>
             </main>
