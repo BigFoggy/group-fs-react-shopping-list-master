@@ -19,14 +19,14 @@ function List({
                 <tbody>
                     {shoppingList.map(list =>
                         (
-                        <tr>
-                            <td key={list.name}>{list.name}</td>
-                            <td key={list.quantity}>{list.quantity}</td>
-                            <td key={list.unit}>{list.unit}</td>
+                        <tr key={list.id}>
+                            <td>{list.name}</td>
+                            <td>{list.quantity}</td>
+                            <td>{list.unit}</td>
                             { list.isPurchased === false ?
                             <>
-                            <td><button key={list.id} onClick={() => setPurchased(list.id)}>Buy</button></td>
-                            <td><button key={list.name-list.unit} onClick={deleteItem}>Remove</button></td>
+                            <td><button onClick={() => setPurchased(list.id)}>Buy</button></td>
+                            <td><button onClick={deleteItem}>Remove</button></td>
                             </>
                             :
                             <p>Purchased!</p>
