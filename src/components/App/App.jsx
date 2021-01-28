@@ -5,12 +5,18 @@ import Form from '../Form/Form';
 import './App.css';
 
 
-const [newItem, setNewItem] = useState('');
-const [newQuantity, setNewQuantity] = useState(0);
-const [newUnit, setNewUnit] = useState('');
-const [shoppingList, setShoppingList] = useState([])
 
 function App() {
+
+    const [newItem, setNewItem] = useState('');
+    const [newQuantity, setNewQuantity] = useState(0);
+    const [newUnit, setNewUnit] = useState('');
+    const [shoppingList, setShoppingList] = useState([])
+
+    const handleSubmit = () =>{
+        console.log('in Handle Submit')
+    }
+
     useEffect(() => {
         getList();
       }, []); 
