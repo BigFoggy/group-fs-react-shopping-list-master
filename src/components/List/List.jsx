@@ -29,7 +29,7 @@ function List({
                             <td><button onClick={deleteItem}>Remove</button></td>
                             </>
                             :
-                            <p>Purchased!</p>
+                            <td>Purchased!</td>
                             }
                         </tr>
                         )

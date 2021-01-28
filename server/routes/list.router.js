@@ -34,4 +34,20 @@ router.post('/', (req,res)=> {
         res.sendStatus(500);
     });
 });
+
+router.put(`/:id`, (req, res) => {
+    console.log('Recieved PUT request..');
+    let itemId = req.params.id;
+    const queryText = 
+        `UPDATE shopping_list SET "isPurchased"='true' WHERE id=$1`;
+    pool.query(queryText, [itemId])
+    .then((result) => {
+            console.log('Updated succesfully!');
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log(`Error making query ${queryText}`, err);
+            res.sendStatus(500);
+        });
+}); // END PUT route
 module.exports = router;

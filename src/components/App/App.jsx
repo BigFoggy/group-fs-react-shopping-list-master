@@ -5,25 +5,32 @@ import Form from '../Form/Form';
 import List from '../List/List';
 import './App.css';
 
-function deleteItem() {
-    console.log('deleting item..');
-}
-
-function handleSubmit() {
-    console.log('handle submit..');
-}
-
-const setPurchased = (itemId) => {
-    // AXIOS PUT REQUEST
-    console.log('PUT request..', itemId);
-}
-
 function App() {
 
     const [newItem, setNewItem] = useState('');
     const [newQuantity, setNewQuantity] = useState(0);
     const [newUnit, setNewUnit] = useState('');
     const [shoppingList, setShoppingList] = useState([])
+
+    function deleteItem() {
+        console.log('deleting item..');
+    }
+
+    function handleSubmit() {
+        console.log('handle submit..');
+    }
+
+    const setPurchased = (itemId) => {
+        // AXIOS PUT REQUEST
+        console.log('PUT request..', itemId);
+        axios({
+            method: 'PUT',
+            url: `/list/${itemId}`
+        }).then((response) => {
+            console.log('Updated Sucessfully!');
+            getList();
+        })
+    }
 
     useEffect(() => {
         getList();
