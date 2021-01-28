@@ -1,4 +1,9 @@
-function List() {
+function List({
+    shoppingList,
+    deleteItem,
+    setPurchased,
+}) {
+    
     return (
         <>
             <table>
@@ -20,8 +25,8 @@ function List() {
                             <td key={list.unit}>{list.unit}</td>
                             { list.isPurchased === false ?
                             <>
-                            <td><button onClick={list.isPurchased === true}>Buy</button></td>
-                            <td><button onClick={deleteItem}>Remove</button></td>
+                            <td><button key={list.id} onClick={() => setPurchased(list.id)}>Buy</button></td>
+                            <td><button key={list.name-list.unit} onClick={deleteItem}>Remove</button></td>
                             </>
                             :
                             <p>Purchased!</p>
