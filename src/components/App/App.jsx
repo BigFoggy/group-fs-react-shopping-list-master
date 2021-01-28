@@ -1,15 +1,33 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+import Header from '../Header/Header.jsx';
 import Form from '../Form/Form';
-
-import Header from '../Header/Header.jsx'
 import './App.css';
 
 
 const [newItem, setNewItem] = useState('');
 const [newQuantity, setNewQuantity] = useState(0);
 const [newUnit, setNewUnit] = useState('');
+const [shoppingList, setShoppingList] = useState([])
 
 function App() {
+    useEffect(() => {
+        getList();
+      }, []); 
+
+      const getList = () => { 
+        axios({
+            method: 'GET',
+            url: '/list'
+        }).then((response)=> {
+            console.log(response);
+            console.log(response.data)
+            setShoppingList(response.data);
+            console.log(shoppingList)
+        })
+    }
+
+
     return (
         <div className="App">
             <Header />
