@@ -17,4 +17,21 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req,res)=> {
+   /*  const newListItem = req.body; */
+    const name = req.body.name
+    const quantity = req.body.quantity
+    const unit = req.body.unit
+    
+    let sqlText = `INSERT INTO shopping_list (name, quantity, unit) VALUES ($1, $2, $3)`;
+
+    pool.query(sqlText, [name, quantity, unit])
+    .then((result) => {
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500);
+    });
+});
 module.exports = router;
