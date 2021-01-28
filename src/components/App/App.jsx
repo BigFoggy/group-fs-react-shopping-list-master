@@ -2,13 +2,20 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
 import Form from '../Form/Form';
+import List from '../List/List';
 import './App.css';
+import { log } from 'console';
 
 
 const [newItem, setNewItem] = useState('');
 const [newQuantity, setNewQuantity] = useState(0);
 const [newUnit, setNewUnit] = useState('');
 const [shoppingList, setShoppingList] = useState([])
+
+function deleteItem() {
+    console.log('deleting item..');
+}
+
 
 function App() {
     useEffect(() => {
@@ -39,6 +46,10 @@ function App() {
             newUnit={newUnit}
             setNewUnit={setNewUnit}
             handleSubmit={handleSubmit}
+            />
+            <List 
+            shoppingList={shoppingList}
+            deleteItem={deleteItem}
             />
             <main>
                 <p>Under Construction...</p>
