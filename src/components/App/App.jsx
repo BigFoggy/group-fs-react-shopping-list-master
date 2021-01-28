@@ -2,9 +2,21 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
 import Form from '../Form/Form';
+import List from '../List/List';
 import './App.css';
 
+function deleteItem() {
+    console.log('deleting item..');
+}
 
+function handleSubmit() {
+    console.log('handle submit..');
+}
+
+const setPurchased = (itemId) => {
+    // AXIOS PUT REQUEST
+    console.log('PUT request..', itemId);
+}
 
 function App() {
 
@@ -12,10 +24,6 @@ function App() {
     const [newQuantity, setNewQuantity] = useState(0);
     const [newUnit, setNewUnit] = useState('');
     const [shoppingList, setShoppingList] = useState([])
-
-    const handleSubmit = () =>{
-        console.log('in Handle Submit')
-    }
 
     useEffect(() => {
         getList();
@@ -45,6 +53,11 @@ function App() {
             newUnit={newUnit}
             setNewUnit={setNewUnit}
             handleSubmit={handleSubmit}
+            />
+            <List 
+            shoppingList={shoppingList}
+            deleteItem={deleteItem}
+            setPurchased={setPurchased}
             />
             <main>
                 <p>Under Construction...</p>

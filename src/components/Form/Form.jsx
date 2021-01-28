@@ -1,4 +1,12 @@
-function Form({newItem,setNewItem,newQuantity,setNewQuantity,newUnit, setNewUnit, handleSubmit}) {
+function Form({
+    newItem,
+    setNewItem,
+    newQuantity,
+    setNewQuantity, 
+    newUnit,
+    setNewUnit,
+    handleSubmit,
+}) {
     return (
         <>
         <h2>Add an item</h2>
