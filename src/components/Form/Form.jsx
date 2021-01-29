@@ -7,6 +7,8 @@ function Form({
     newUnit,
     setNewUnit,
     handleSubmit,
+    deleteAll,
+    resetAll,
 }) {
     return (
         <>
@@ -15,8 +17,14 @@ function Form({
                 <p>Item: </p><input type="text" placeholder="Item" value={newItem} onChange={(event) => setNewItem(event.target.value)} />
                 <p>Quantity: </p><input type="number" placeholder="Amount" value={newQuantity} onChange={(event) => setNewQuantity(event.target.value)} />
                 <p>Unit: </p><input type="text" placeholder="Unit" value={newUnit} onChange={(event) => setNewUnit(event.target.value)} />
-                <button type="submit">Add Item</button>
+                <p><button type="submit">Add Item</button></p>
+                
         </form>
+        <p className = 'buttons'>
+            <button onClick={() => deleteAll()}>Clear</button> 
+            <button onClick={() => resetAll()}>Reset</button>
+        </p>
+        
         </>
     );
 }
