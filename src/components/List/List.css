@@ -1,0 +1,15 @@
+.itemTable{
+    margin: 20px auto 0px auto;
+    border-collapse: collapse;
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+.itemTable td{
+    border: solid 1px black;
+    padding: 10px;
+    text-align: center;
+}
+.itemTable th{
+    padding:10px
+}
