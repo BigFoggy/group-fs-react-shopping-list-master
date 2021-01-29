@@ -23,6 +23,11 @@ function App() {
         
         })
     }
+    
+
+
+
+ 
 
     const deleteAll = () => {
         console.log('Clear Clicked (Delete All)')
@@ -69,6 +74,24 @@ function App() {
         })
     }
 
+    const addToList = (event) => {
+        console.log('Posting new item to server..');
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: {
+                name: newItem,
+                quantity: newQuantity,
+                unit: newUnit
+            }
+        }).then((response)=> {
+            getList();
+            setNewItem('');
+            setNewQuantity('');
+            setNewUnit('');
+        })
+    }
+ 
 
     return (
         <div className="App">
@@ -82,6 +105,8 @@ function App() {
             setNewUnit={setNewUnit}
             deleteAll={deleteAll}
             resetAll={resetAll}
+            //handleSubmit={handleSubmit}
+            addToList={addToList}
             />
             <List 
             shoppingList={shoppingList}
