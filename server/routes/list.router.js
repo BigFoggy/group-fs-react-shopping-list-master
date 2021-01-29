@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             console.log(`Error making database query ${sqlText}`, error);
             res.sendStatus(500);
         });
-});
+}); // END GET route
 
 router.post('/', (req,res)=> {
    /*  const newListItem = req.body; */
@@ -33,7 +33,7 @@ router.post('/', (req,res)=> {
         console.log(`Error making database query ${sqlText}`, error);
         res.sendStatus(500);
     });
-});
+}); // END POST route
 
 router.put(`/:id`, (req, res) => {
     console.log('Recieved PUT request..');
@@ -51,6 +51,21 @@ router.put(`/:id`, (req, res) => {
         });
 }); // END PUT route
 
+router.post(`/reset`, (req, res) => {
+    console.log('Recieved POST request..');
+    const queryText = 
+        `UPDATE shopping_list SET "isPurchased"='false'`;
+    pool.query(queryText)
+    .then((result) => {
+            console.log('Updated succesfully!');
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log(`Error making query ${queryText}`, err);
+            res.sendStatus(500);
+        });
+}); // END POST route
+
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
     console.log('Delete route called with id of', id);
@@ -62,7 +77,7 @@ router.delete('/:id', (req, res) => {
       console.log(`Error deleting`, error);
       res.sendStatus(500);
     });
-  });
+  }); // END DELETE route
 
   router.post('/emptylist', (req, res) => {
     console.log('Deleting entire table..');
@@ -74,6 +89,6 @@ router.delete('/:id', (req, res) => {
       console.log(`Error deleting`, error);
       res.sendStatus(500);
     });
-  });
+  }); // END POST route
 
 module.exports = router;
