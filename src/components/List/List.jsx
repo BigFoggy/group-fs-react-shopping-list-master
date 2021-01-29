@@ -1,3 +1,4 @@
+import './List.css'
 function List({
     shoppingList,
     deleteItem,
@@ -6,14 +7,14 @@ function List({
     
     return (
         <>
-            <table>
+            <table className = "itemTable">
                 <thead>
                     <tr>
-                        <td>Item</td>
-                        <td>Amount</td>
-                        <td>Unit</td>
-                        <td></td>
-                        <td></td>
+                        <th>Item</th>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

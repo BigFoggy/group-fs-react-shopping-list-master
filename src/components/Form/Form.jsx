@@ -1,3 +1,4 @@
+import './Form.css'
 function Form({
     newItem,
     setNewItem,
@@ -10,7 +11,7 @@ function Form({
     return (
         <>
         <h2>Add an item</h2>
-        <form onSubmit={handleSubmit}>
+        <form className ="itemForm" onSubmit={handleSubmit}>
                 <p>Item: </p><input type="text" placeholder="Item" value={newItem} onChange={(event) => setNewItem(event.target.value)} />
                 <p>Quantity: </p><input type="number" placeholder="Amount" value={newQuantity} onChange={(event) => setNewQuantity(event.target.value)} />
                 <p>Unit: </p><input type="text" placeholder="Unit" value={newUnit} onChange={(event) => setNewUnit(event.target.value)} />
