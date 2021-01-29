@@ -26,7 +26,7 @@ function List({
                             { list.isPurchased === false ?
                             <>
                             <td><button onClick={() => setPurchased(list.id)}>Buy</button></td>
-                            <td><button onClick={deleteItem}>Remove</button></td>
+                            <td><button onClick={() => deleteItem(list.id)}>Remove</button></td>
                             </>
                             :
                             <td>Purchased!</td>
