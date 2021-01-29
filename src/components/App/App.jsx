@@ -37,6 +37,13 @@ function App() {
 
     const resetAll = () => {
         console.log('resetAll (set all isPurchased to False)')
+        axios({
+            method: 'POST',
+            url: `/list/reset`
+        }).then((response) => {
+            console.log('Updated Sucessfully!');
+            getList();
+        })
     }
 
    

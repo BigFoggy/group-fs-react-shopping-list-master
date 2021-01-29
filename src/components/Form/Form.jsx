@@ -20,6 +20,7 @@ function Form({
                 <p><button type="submit">Add Item</button></p>
                 
         </form>
+        <h2>Shopping List</h2>
         <p className = 'buttons'>
             <button onClick={() => deleteAll()}>Clear</button> 
             <button onClick={() => resetAll()}>Reset</button>
