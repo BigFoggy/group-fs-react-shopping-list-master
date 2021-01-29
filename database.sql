@@ -1,7 +1,7 @@
 CREATE TABLE "shopping_list"(
 	"id" SERIAL PRIMARY KEY NOT NULL,
 	"name" VARCHAR (80) NOT NULL,
-	"quantity" INTEGER,
+	"quantity" NUMERIC,
 	"unit" VARCHAR (20) NOT NULL,
   	"isPurchased" BOOLEAN DEFAULT 'false'
 );
