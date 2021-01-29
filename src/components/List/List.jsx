@@ -12,7 +12,6 @@ function List({
                     <tr>
                         <th>Item</th>
                         <th>Amount</th>
-                        <th>Unit</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -22,8 +21,7 @@ function List({
                         (
                         <tr key={list.id}>
                             <td>{list.name}</td>
-                            <td>{list.quantity}</td>
-                            <td>{list.unit}</td>
+                            <td>{list.quantity}  {list.unit}</td>
                             { list.isPurchased === false ?
                             <>
                             <td><button onClick={() => setPurchased(list.id)}>Buy</button></td>

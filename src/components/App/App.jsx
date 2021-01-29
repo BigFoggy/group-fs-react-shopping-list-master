@@ -121,7 +121,6 @@ function App() {
             setPurchased={setPurchased}
             />
             <main>
-                <p>Under Construction...</p>
             </main>
         </div>
     );
