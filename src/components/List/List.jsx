@@ -30,7 +30,10 @@ function List({
                             <td><button onClick={() => deleteItem(list.id)}>Remove</button></td>
                             </>
                             :
+                            <>
                             <td>Purchased!</td>
+                            <td><button onClick={() => deleteItem(list.id)}>Remove</button></td>
+                            </>
                             }
                         </tr>
                         )
