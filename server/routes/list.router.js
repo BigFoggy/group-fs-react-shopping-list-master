@@ -50,4 +50,18 @@ router.put(`/:id`, (req, res) => {
             res.sendStatus(500);
         });
 }); // END PUT route
+
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    console.log('Delete route called with id of', id);
+    const queryText = `DELETE FROM "shopping_list" WHERE id = $1;`;
+    pool.query(queryText, [id]).then(result => {
+      console.log('Successfully removed list item')
+      res.sendStatus(204);
+    }).catch(error => {
+      console.log(`Error deleting`, error);
+      res.sendStatus(500);
+    });
+  });
+
 module.exports = router;

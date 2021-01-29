@@ -12,8 +12,16 @@ function App() {
     const [newUnit, setNewUnit] = useState('');
     const [shoppingList, setShoppingList] = useState([])
 
-    function deleteItem() {
-        console.log('deleting item..');
+    const deleteItem = (itemId) => {
+        console.log('Delte Clicked')
+        axios({
+            method: 'DELETE',
+            url: `/list/${itemId}`,
+        }).then((response)=> {
+            console.log(response)
+            getList()
+        
+        })
     }
 
     function handleSubmit() {
