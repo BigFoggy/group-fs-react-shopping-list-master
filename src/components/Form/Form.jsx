@@ -6,10 +6,18 @@ function Form({
     setNewQuantity, 
     newUnit,
     setNewUnit,
-    handleSubmit,
+    //handleSubmit,
     deleteAll,
     resetAll,
+    addToList,
 }) {
+    const handleSubmit = (event) => {
+        console.log('Submit button clicked')
+        event.preventDefault();
+        console.log(newItem, newQuantity, newUnit);
+        addToList(newItem, newQuantity, newUnit);
+
+    }
     return (
         <>
         <h2>Add an item</h2>

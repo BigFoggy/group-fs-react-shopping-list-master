@@ -2,7 +2,7 @@ import './List.css'
 function List({
     shoppingList,
     deleteItem,
-    setPurchased,
+    setPurchased
 }) {
     
     return (
@@ -33,6 +33,7 @@ function List({
                             <>
                             <td>Purchased!</td>
                             <td><button onClick={() => deleteItem(list.id)}>Remove</button></td>
+                        
                             </>
                             }
                         </tr>
