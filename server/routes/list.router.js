@@ -64,4 +64,16 @@ router.delete('/:id', (req, res) => {
     });
   });
 
+  router.post('/emptylist', (req, res) => {
+    console.log('Deleting entire table..');
+    const queryText = `DELETE FROM "shopping_list";`;
+    pool.query(queryText).then(result => {
+      console.log('Successfully removed list item')
+      res.sendStatus(204);
+    }).catch(error => {
+      console.log(`Error deleting`, error);
+      res.sendStatus(500);
+    });
+  });
+
 module.exports = router;

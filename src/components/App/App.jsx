@@ -26,7 +26,13 @@ function App() {
 
     const deleteAll = () => {
         console.log('Clear Clicked (Delete All)')
-       
+        axios({
+            method: 'POST',
+            url: `/list/emptylist`,
+        }).then((response) => {
+            console.log(response)
+            getList()
+        })
     }
 
     const resetAll = () => {
