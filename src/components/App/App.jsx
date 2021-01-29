@@ -24,9 +24,16 @@ function App() {
         })
     }
 
-    function handleSubmit() {
-        console.log('handle submit..');
+    const deleteAll = () => {
+        console.log('Clear Clicked (Delete All)')
+       
     }
+
+    const resetAll = () => {
+        console.log('resetAll (set all isPurchased to False)')
+    }
+
+   
 
     const setPurchased = (itemId) => {
         // AXIOS PUT REQUEST
@@ -67,7 +74,8 @@ function App() {
             setNewQuantity={setNewQuantity}
             newUnit={newUnit}
             setNewUnit={setNewUnit}
-            handleSubmit={handleSubmit}
+            deleteAll={deleteAll}
+            resetAll={resetAll}
             />
             <List 
             shoppingList={shoppingList}
